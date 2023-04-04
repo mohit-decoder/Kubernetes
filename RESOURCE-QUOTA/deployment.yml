@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: tomcat
+ namespace: Dev
+ labels:
+   app: myapp
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: myapp
+ template:
+   metadata:
+     name: tomcat
+     labels:
+       app: myapp
+   spec:
+     containers:
+       - name: tomcat-app
+         image: mohitdecoder/tomcat11
+         ports:
+           - containerPort: 8080
+         resources:
+           limits:
+             memory: "800Mi"
+             cpu: "800m"
+           requests:
+             memory: "600Mi"
+             cpu: "400m"
