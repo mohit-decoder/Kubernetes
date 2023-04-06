@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: myde
+ annotations: #(Declerative Way Of Changeing Rollout History Change-Cause)
+   kubernetes.io/change-cause: "Version-1"
+spec:
+ replicas: 5
+ strategy:
+   rollingUpdate:
+     maxSurge: 1
+     maxUnavailable: 1
+   type: RollingUpdate
+ selector:
+   matchLabels:
+     app: myapp
+ template:
+   metadata:
+     labels:
+       app: myapp
+   spec:
+     containers:
+     - name: myng
+       #image: nginx:1.9.5
+       #image: nginx:1.10.0
+       image: nginx
+       ports:
+       - containerPort: 80
