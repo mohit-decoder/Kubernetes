@@ -2,11 +2,11 @@
 
 This repository contains three Kubernetes Deployment YAML files that demonstrate different methods to control pod scheduling on specific nodes:
 
-*1. node-selector.yml
+1.  node-selector.yml
 
 2.  preferred-node.yml
 
-3.  required-node.yml*
+3.  required-node.yml
 
 #   Concept Overview:
 
