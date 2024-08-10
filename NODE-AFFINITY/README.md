@@ -1,6 +1,6 @@
 # Kubernetes Node Affinity and Node Selector Examples
 
-##  This repository contains three Kubernetes Deployment YAML files that demonstrate different methods to control pod scheduling on specific nodes:
+This repository contains three Kubernetes Deployment YAML files that demonstrate different methods to control pod scheduling on specific nodes:
 
 1.  node-selector.yml
 
