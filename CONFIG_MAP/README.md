@@ -1,0 +1,1 @@
+this tutorial for configuring environment variables in the pod configuration with the config-map through configMapKeyRef.
