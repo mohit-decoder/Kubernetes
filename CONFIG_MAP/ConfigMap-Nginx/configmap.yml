@@ -1,0 +1,47 @@
+apiVersion: v1
+data:
+  default.conf: |+
+    # default.conf
+
+    server {
+        listen 9999;
+        server_name localhost;
+
+        # Root directory for serving files
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+
+        # Logging
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        # Location for root
+        location / {
+            try_files $uri $uri/ =404;
+        }
+
+        # Pass PHP requests to FastCGI
+        # Uncomment these lines if you need PHP support
+        # location ~ \.php$ {
+        #     include fastcgi_params;
+        #     fastcgi_pass 127.0.0.1:9000;
+        #     fastcgi_index index.php;
+        #     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        # }
+
+        # Location for handling errors
+        error_page 404 /404.html;
+        location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+        }
+    }
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2024-11-06T06:47:00Z"
+  name: default.conf
+  resourceVersion: "3084"
+  uid: d5bc755b-9e22-423b-99f8-e269e17b3e86
